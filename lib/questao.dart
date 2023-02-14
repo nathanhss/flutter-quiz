@@ -14,8 +14,8 @@ class Questao extends StatelessWidget {
         children: [
           const Padding(padding: EdgeInsets.only(top: 35)),
           SizedBox(
-            height: 65,
-            width: 65,
+            height: 75,
+            width: 75,
             child: Image.asset(myImage),
           ),
           const Padding(padding: EdgeInsets.all(10.0)),
