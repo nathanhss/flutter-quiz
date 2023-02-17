@@ -1,40 +1,62 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
+import './result.dart';
+import 'quiz_generator.dart';
+import './utils/questions.list.dart';
 
-class Quiz extends StatelessWidget {
-  final int selectedQuestion;
-  final List<Map<String, Object>> questions;
-  final void Function(int) onAnswer;
+class Quiz extends StatefulWidget {
+  const Quiz({super.key});
 
-  const Quiz({
-    super.key,
-    required this.questions,
-    required this.selectedQuestion,
-    required this.onAnswer,
-  });
+  @override
+  State<Quiz> createState() => _QuizState();
+}
+
+class _QuizState extends State<Quiz> {
+  int _perguntaSelecionada = 0;
+  var _score = 0;
+  static String title = 'Conhecimentos gerais - Quiz';
+  final List<Map<String, Object>> perguntas = questionsList;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void onAnswer(int score) {
+    setState(() {
+      _perguntaSelecionada++;
+      _score += score;
+    });
+  }
+
+  void onRestart() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _score = 0;
+    });
+  }
 
   bool get hasSelectedQuestion {
-    return selectedQuestion < questions.length;
+    return _perguntaSelecionada < perguntas.length;
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, Object>> answers = hasSelectedQuestion
-        ? questions[selectedQuestion]['resposta'] as List<Map<String, Object>>
-        : [];
-
-    return Column(
-      children: <Widget>[
-        Questao(questions[selectedQuestion]['image'] as String,
-            questions[selectedQuestion]['texto'] as String),
-        ...answers.map((ans) {
-          return Resposta(
-            ans['text'].toString(),
-            () => onAnswer(int.parse(ans['value'].toString())),
-          );
-        }).toList(),
-      ],
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: hasSelectedQuestion
+            ? QuizGenerator(
+                onAnswer: onAnswer,
+                questions: perguntas,
+                selectedQuestion: _perguntaSelecionada,
+              )
+            : QuizResult(score: _score, restart: onRestart),
+      ),
     );
   }
 }
