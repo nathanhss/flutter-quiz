@@ -25,7 +25,7 @@ class QuizGenerator extends StatelessWidget {
         : [];
 
     return Column(
-      children: <Widget>[
+      children: [
         Questao(questions[selectedQuestion]['image'] as String,
             questions[selectedQuestion]['texto'] as String),
         ...answers.map((ans) {

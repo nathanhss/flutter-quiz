@@ -12,7 +12,7 @@ class Resposta extends StatelessWidget {
       children: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurple[400],
+            backgroundColor: const Color.fromARGB(255, 82, 0, 255),
           ),
           onPressed: onSelection,
           child: Text(buttonText),
