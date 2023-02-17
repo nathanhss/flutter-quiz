@@ -6,6 +6,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': '77', 'value': 1},
       {'text': '112', 'value': 0},
       {'text': '41', 'value': 0},
+      {'text': '65', 'value': 0},
     ]
   },
   {
@@ -15,6 +16,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': 'Marte', 'value': 0},
       {'text': 'Netuno', 'value': 0},
       {'text': 'Plutão', 'value': 1},
+      {'text': 'Vênus', 'value': 0},
     ]
   },
   {
@@ -24,6 +26,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': 'Aristóteles', 'value': 0},
       {'text': 'Platão', 'value': 0},
       {'text': 'Sócrates', 'value': 1},
+      {'text': 'Pitágoras', 'value': 0},
     ]
   },
   {
@@ -33,6 +36,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': '100 anos', 'value': 0},
       {'text': '125 anos', 'value': 0},
       {'text': '116 anos', 'value': 1},
+      {'text': '98 anos', 'value': 1},
     ]
   },
   {
@@ -42,6 +46,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': 'França', 'value': 0},
       {'text': 'Brasil', 'value': 1},
       {'text': 'Inglaterra', 'value': 0},
+      {'text': 'Estados Unidos', 'value': 0},
     ]
   },
   {
@@ -51,6 +56,7 @@ final List<Map<String, Object>> questionsList = [
       {'text': '8 minutos', 'value': 1},
       {'text': '0 segundos', 'value': 0},
       {'text': '12 segundos', 'value': 0},
+      {'text': '2 minutos', 'value': 0}
     ]
   }
 ];
