@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz.dart';
+import 'about.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -80,7 +81,28 @@ class MenuScreen extends StatelessWidget {
               ),
               const Padding(padding: EdgeInsets.only(top: 15)),
               ElevatedButton(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const About(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(0, 82, 0, 255),
                   fixedSize: const Size(256, 55.3),
